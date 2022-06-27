@@ -13,128 +13,56 @@ const AmountWeapon4 = document.querySelector(".amount-4");
 const BuyWeapon5 = document.querySelector(".weapon-buy-5");
 const AmountWeapon5 = document.querySelector(".amount-5");
 
-let DPS = 0;
+const Knife = new Weapon(10, 1);
+const Bow = new Weapon(100, 10);
+const Hammer = new Weapon(500, 50);
+const Sword = new Weapon(1000, 100);
+const Pistol = new Weapon(10000, 1000);
+
 let current_money = 0;
 let current_money_new;
+let DPS = 0;
 let DPS_new;
 
-AmountWeapon1Counter = 0;
-AmountWeapon2Counter = 0;
-AmountWeapon3Counter = 0;
-AmountWeapon4Counter = 0;
-AmountWeapon5Counter = 0;
-
 function numberWithCommas(x) { //разделитель тысяч запятыми
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-function Click() {
+function Click() { //клик по центральному кругу
     current_money++;
     SetMoney();
 }
 
-function SetMoney() {
+function SetMoney() { //записываем количество денег
     current_money_new = numberWithCommas(current_money);
     money.innerHTML = `${current_money_new} $`;
 }
 
-function SetDPS() {
+function SetDPS() { //автоматический прирост денег
     current_money = current_money + DPS;
     DPS_new = numberWithCommas(DPS);
     dps.innerHTML = `${DPS_new} $/s`;
     SetMoney();
 }
 
-function SetAmountWeapon1() {
-    AmountWeapon1.innerHTML = `${AmountWeapon1Counter}`
+function SetAmountWeapon() { //записываем количество оружия
+    AmountWeapon1.innerHTML = `${Knife.amount}`
+    AmountWeapon2.innerHTML = `${Bow.amount}`
+    AmountWeapon3.innerHTML = `${Hammer.amount}`
+    AmountWeapon4.innerHTML = `${Sword.amount}`
+    AmountWeapon5.innerHTML = `${Pistol.amount}`
 }
 
-function SetAmountWeapon2() {
-    AmountWeapon2.innerHTML = `${AmountWeapon2Counter}`
-}
-
-function SetAmountWeapon3() {
-    AmountWeapon3.innerHTML = `${AmountWeapon3Counter}`
-}
-
-function SetAmountWeapon4() {
-    AmountWeapon4.innerHTML = `${AmountWeapon4Counter}`
-}
-
-function SetAmountWeapon5() {
-    AmountWeapon5.innerHTML = `${AmountWeapon5Counter}`
-}
-
-function BuyW1() {
-    if (current_money >= 10) {
-        current_money = current_money - 10;
-        SetMoney();
-        AmountWeapon1Counter++;
-        SetAmountWeapon1();
-        DPS = DPS + 1;
-    } else {
-        NoMoney()
-    }
-}
-
-function BuyW2() {
-    if (current_money >= 100) {
-        current_money = current_money - 100;
-        SetMoney();
-        AmountWeapon2Counter++;
-        SetAmountWeapon2();
-        DPS = DPS + 10;
-    } else {
-        NoMoney()
-    }
-}
-
-function BuyW3() {
-    if (current_money >= 500) {
-        current_money = current_money - 500;
-        SetMoney();
-        AmountWeapon3Counter++;
-        SetAmountWeapon3();
-        DPS = DPS + 50;
-    } else {
-        NoMoney()
-    }
-}
-
-function BuyW4() {
-    if (current_money >= 1000) {
-        current_money = current_money - 1000;
-        SetMoney();
-        AmountWeapon4Counter++;
-        SetAmountWeapon4();
-        DPS = DPS + 100;
-    } else {
-        NoMoney()
-    }
-}
-
-function BuyW5() {
-    if (current_money >= 10000) {
-        current_money = current_money - 10000;
-        SetMoney();
-        AmountWeapon5Counter++;
-        SetAmountWeapon5();
-        DPS = DPS + 1000;
-    } else {
-        NoMoney()
-    }
-}
-
-function NoMoney() {
+function NoMoney() { //мигаем красным если недостаточно денег
     money.classList.add("alert");
     setTimeout(() => money.classList.remove("alert"), 500);
 }
 
-BuyWeapon1.addEventListener("click", BuyW1);
-BuyWeapon2.addEventListener("click", BuyW2);
-BuyWeapon3.addEventListener("click", BuyW3);
-BuyWeapon4.addEventListener("click", BuyW4);
-BuyWeapon5.addEventListener("click", BuyW5);
+BuyWeapon1.addEventListener("click", () => Knife.buy());
+BuyWeapon2.addEventListener("click", () => Bow.buy());
+BuyWeapon3.addEventListener("click", () => Hammer.buy());
+BuyWeapon4.addEventListener("click", () => Sword.buy());
+BuyWeapon5.addEventListener("click", () => Pistol.buy());
 
 point.addEventListener("click", Click);
 

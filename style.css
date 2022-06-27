@@ -134,23 +134,23 @@ main {
 }
 
 .weapon-img-1 {
-    background-image: url("/assets/weapon-1.png");
+    background-image: url("/assets/png/weapon-1.png");
 }
 
 .weapon-img-2 {
-    background-image: url("/assets/weapon-2.png");
+    background-image: url("/assets/png/weapon-2.png");
 }
 
 .weapon-img-3 {
-    background-image: url("/assets/weapon-3.png");
+    background-image: url("/assets/png/weapon-3.png");
 }
 
 .weapon-img-4 {
-    background-image: url("/assets/weapon-4.png");
+    background-image: url("/assets/png/weapon-4.png");
 }
 
 .weapon-img-5 {
-    background-image: url("/assets/weapon-5.png");
+    background-image: url("/assets/png/weapon-5.png");
 }
 
 .target-box {
@@ -161,13 +161,13 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("/assets/target-background.png");
+    background-image: url("/assets/png/target-background.png");
     background-repeat: round;
 }
 
 .target {
     background-color: indianred;
-    background-image: url("/assets/chest.png");
+    background-image: url("/assets/png/chest.png");
     background-repeat: no-repeat;
     background-size: cover;
     width: 300px;
