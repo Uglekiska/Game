@@ -1,0 +1,195 @@
+html, body {
+    height: 100%;
+    user-select: none;
+}
+
+body {
+    margin: 0 auto;
+}
+
+header, footer {
+    height: 10%;
+    width: 100%;
+    background-color: green;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    font-size: 30px;
+    color: navajowhite;
+}
+
+.money {
+    width: 60%;
+    background-color: navajowhite;
+    border-radius: 5px;
+    text-align: right;
+    font-size: 20px;
+    color: seagreen;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 20px;
+    transition: 0.25s;
+}
+
+.dps {
+    width: 15%;
+    background-color: navajowhite;
+    border-radius: 5px;
+    text-align: right;
+    font-size: 20px;
+    color: seagreen;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+main {
+    width: 100%;
+    height: 80%;
+    background-color: wheat;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.weapons {
+    width: 90%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.weapon-box {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.amount, .weapon-buy {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.amount {
+    width: 20%;
+    height: 50%;
+    text-align: center;
+    font-size: 14px;
+    color: seagreen;
+    border: 2px solid seagreen;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weapon-img {
+    border: 2px solid seagreen;
+    border-radius: 5px;
+    width: 40%;
+    height: 100%;
+    background-size: cover;
+}
+
+.weapon-buy {
+    width: 30%;
+    height: 50%;
+    border: 2px solid seagreen;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 14px;
+    color: seagreen;
+    transition: 0.5s;
+}
+
+.weapon-buy > p {
+    text-align: center;
+    margin: auto;
+}
+
+.weapon-buy:hover {
+    border: 2px solid red;
+    cursor: pointer;
+}
+
+.weapon-buy:active {
+    border: 2px solid red;
+    transform: scale(1.1);
+}
+
+.weapon-img-1 {
+    background-image: url("/src/png/weapon-1.png");
+}
+
+.weapon-img-2 {
+    background-image: url("/src/png/weapon-2.png");
+}
+
+.weapon-img-3 {
+    background-image: url("/src/png/weapon-3.png");
+}
+
+.weapon-img-4 {
+    background-image: url("/src/png/weapon-4.png");
+}
+
+.weapon-img-5 {
+    background-image: url("/src/png/weapon-5.png");
+}
+
+.target-box {
+    border: 5px solid grey;
+    border-radius: 50%;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/src/png/target-background.png");
+    background-repeat: round;
+}
+
+.target {
+    background-color: indianred;
+    background-image: url("/src/png/chest.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 3px solid grey;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.target:hover {
+    cursor: pointer;
+    border: 3px solid black;
+}
+
+.target:active {
+    transform: scale(1.05);
+}
+
+.alert {
+    background-color: indianred;
+}
