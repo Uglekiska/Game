@@ -16,5 +16,10 @@ class Weapon {
             NoMoney()
         }
     }
+
+    restart() {
+        this.amount = 0;
+        SetAmountWeapon();
+    }
 }
 

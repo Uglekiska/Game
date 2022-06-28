@@ -1,6 +1,10 @@
 const point = document.querySelector(".target");
 const money = document.querySelector(".money");
 const dps = document.querySelector(".dps");
+const restart = document.querySelector(".restart-button");
+
+const ok = document.querySelector(".confirm-button");
+const afkAlert = document.querySelector(".afk-alert");
 
 const BuyWeapon1 = document.querySelector(".weapon-buy-1");
 const AmountWeapon1 = document.querySelector(".amount-1");
@@ -23,6 +27,9 @@ let current_money = 0;
 let current_money_new;
 let DPS = 0;
 let DPS_new;
+
+window.onload = Continue; //загрузка сохранения при открытии
+window.onbeforeunload = Save; //сохнанение при закрытии
 
 function numberWithCommas(x) { //разделитель тысяч запятыми
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -58,6 +65,36 @@ function NoMoney() { //мигаем красным если недостаточ
     setTimeout(() => money.classList.remove("alert"), 500);
 }
 
+function Restart() { //перезапуск
+    let RestartConfirm = confirm("Are You Sure?");
+    if (RestartConfirm === true) {
+        Knife.restart();
+        Bow.restart();
+        Hammer.restart();
+        Sword.restart();
+        Pistol.restart();
+        current_money = 0;
+        SetMoney();
+        DPS = 0;
+        SetDPS();
+        localStorage.clear()
+    }
+}
+
+function Close() {
+    afkAlert.style.display = "none";
+}
+
+function AFKAlert() {
+    if (parseInt(localStorage.getItem("money"), 10) !== 0) {
+        afkAlert.style.display = "block";
+    }
+}
+
+function SetAFKEarnings() {
+    document.querySelector(".afk-alert-text").innerHTML = `You were AFK for ${afkTime} seconds. Your AFK earnings ${afkEarnings}$`;
+}
+
 BuyWeapon1.addEventListener("click", () => Knife.buy());
 BuyWeapon2.addEventListener("click", () => Bow.buy());
 BuyWeapon3.addEventListener("click", () => Hammer.buy());
@@ -65,5 +102,9 @@ BuyWeapon4.addEventListener("click", () => Sword.buy());
 BuyWeapon5.addEventListener("click", () => Pistol.buy());
 
 point.addEventListener("click", Click);
+
+restart.addEventListener("click", Restart);
+
+ok.addEventListener("click", Close);
 
 setInterval(() => SetDPS(), 1000);

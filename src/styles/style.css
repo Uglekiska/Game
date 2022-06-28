@@ -15,7 +15,7 @@ header, footer {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 footer {
@@ -24,7 +24,7 @@ footer {
 }
 
 .money {
-    width: 60%;
+    width: 40%;
     background-color: navajowhite;
     border-radius: 5px;
     text-align: right;
@@ -45,6 +45,40 @@ footer {
     color: seagreen;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.restart-button {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid navajowhite;
+    cursor: pointer;
+    width: 7%;
+    height: auto;
+    color: seagreen;
+    background-image: linear-gradient(45deg, seagreen 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    transition: background 300ms ease-in-out;
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    align-self: center;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.restart-button:hover {
+    background-position: 0;
+    color: navajowhite;
+    outline: 0;
+    border-color: red;
+}
+
+.restart-button:active {
+    transform: scale(1.05);
 }
 
 main {
@@ -192,4 +226,49 @@ main {
 
 .alert {
     background-color: indianred;
+}
+
+.afk-alert {
+    display: none;
+    position: fixed;
+    background-color: dodgerblue;
+    width: 100%;
+    height: 100%;
+}
+
+.confirm-button {
+    position: fixed;
+    width: 20%;
+    height: 10%;
+    outline: none;
+    left: 40%;
+    bottom: 45%;
+    border-radius: 10px;
+    color: dodgerblue;
+    background-color: navajowhite;
+    border: 3px solid navajowhite;
+    font-size: 30px;
+    transition: 0.5s;
+}
+
+.confirm-button:hover {
+    cursor: pointer;
+    border: 3px solid navajowhite;
+    background-color: dodgerblue;
+    color: navajowhite;
+}
+
+.confirm-button:active {
+    transform: scale(1.05);
+}
+
+.afk-alert-text {
+    position: fixed;
+    width: 80%;
+    height: 5%;
+    left: 10%;
+    top: 30%;
+    text-align: center;
+    font-size: 50px;
+    color: navajowhite;
 }
