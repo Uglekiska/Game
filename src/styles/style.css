@@ -85,6 +85,8 @@ main {
     width: 100%;
     height: 80%;
     background-color: wheat;
+    background-image: url("/src/png/bg.png");
+    background-size: cover;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -113,7 +115,6 @@ main {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    -o-user-select: none;
     user-select: none;
 }
 
