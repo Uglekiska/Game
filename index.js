@@ -82,17 +82,21 @@ function Restart() { //перезапуск
 }
 
 function Close() {
-    afkAlert.style.display = "none";
+    afkAlert.classList.remove("afk-alert-new");
 }
 
 function AFKAlert() {
     if (parseInt(localStorage.getItem("money"), 10) !== 0) {
-        afkAlert.style.display = "block";
+        afkAlert.classList.add("afk-alert-new");
     }
 }
 
 function SetAFKEarnings() {
     document.querySelector(".afk-alert-text").innerHTML = `You were AFK for ${afkTime} seconds. Your AFK earnings ${afkEarnings}$`;
+}
+
+function LoadingScreen() {
+    document.querySelector(".loading-screen").classList.add("loading-screen-new");
 }
 
 BuyWeapon1.addEventListener("click", () => Knife.buy());
@@ -108,3 +112,5 @@ restart.addEventListener("click", Restart);
 ok.addEventListener("click", Close);
 
 setInterval(() => SetDPS(), 1000);
+
+setTimeout(LoadingScreen, 5000);
